@@ -1,6 +1,5 @@
 package org.fls;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +17,9 @@ public class Team {
         this.name = name;
         this.players = new ArrayList<>();
         this.points = 0;
+        this.wins = 0;
+        this.losses = 0;
+        this.draws = 0;
         this.goalsFor = 0;
         this.goalsAgainst = 0;
     }
@@ -28,7 +30,7 @@ public class Team {
 
     public int getTeamSkill() {
         int totalSkill = 0;
-        for (Player player: players) {
+        for (Player player : players) {
             totalSkill += player.skill;
         }
         return !players.isEmpty() ? totalSkill / players.size() : 0;

@@ -7,22 +7,24 @@ public class FootballLegendsSimulator {
 
     public static void main(String[] args) {
 
-        // Create 10 teams
+        // Load team names from settings
+        List<String> teamNames = GameSettings.loadTeamNames();
+
+        // Create teams based on settings
         List<Team> teams = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            Team team = createTeam("Team " + i, 50 + (int) (Math.random() * 50));
+        for (String teamName : teamNames) {
+            Team team = createTeam(teamName, 50 + (int) (Math.random() * 50));
             teams.add(team);
         }
 
         League league = new League(teams);
 
-        // Start league
+        // Start the league
         System.out.println("Starting the league...\n");
         league.startLeague();
 
         // Show final standings
         league.showStandings();
-
     }
 
     // Helper method to create a team with random players
