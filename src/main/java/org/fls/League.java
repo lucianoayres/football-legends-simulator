@@ -27,7 +27,11 @@ public class League {
                     if (t1.wins != t2.wins) {
                         return t2.wins - t1.wins;
                     }
-                    // Second tie-breaker (optional): use goal difference
+                    // Second tie-breaker: compare goalsFor (higher goalsFor ranks higher)
+                    if (t1.goalsFor != t2.goalsFor) {
+                        return t2.goalsFor - t1.goalsFor;
+                    }
+                    // Third tie-breaker: use goal difference (higher goal difference ranks higher)
                     return (t2.goalsFor - t2.goalsAgainst) - (t1.goalsFor - t1.goalsAgainst);
                 }
                 return t2.points - t1.points; // Higher points rank higher
