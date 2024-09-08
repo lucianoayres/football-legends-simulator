@@ -8,6 +8,9 @@ public class Team {
     String name;
     List<Player> players;
     int points;
+    int wins;
+    int losses;
+    int draws;
     int goalsFor;
     int goalsAgainst;
 
@@ -35,14 +38,18 @@ public class Team {
         this.goalsFor += goalsFor;
         this.goalsAgainst += goalsAgainst;
         if (goalsFor > goalsAgainst) {
+            wins += 1;
             points += 3;
         } else if (goalsFor == goalsAgainst) {
+            draws += 1;
             points += 1;
+        } else {
+            losses += 1;
         }
     }
 
     @Override
     public String toString() {
-        return name + " - Points: " + points + ", GF: " + goalsFor + ", GA: " + goalsAgainst;
+        return name + " - Points: " + points + ", W: " + wins + ", D: " + draws + ", L: " + losses + ", GF: " + goalsFor + ", GA: " + goalsAgainst;
     }
 }
