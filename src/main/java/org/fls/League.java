@@ -1,7 +1,6 @@
 package org.fls;
 
 import java.util.List;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class League {
@@ -20,14 +19,14 @@ public class League {
     }
 
     public void showStandings() {
-        Collections.sort(teams, new Comparator<Team>() {
-           @Override
-           public int compare(Team t1, Team t2){
-               if (t1.points == t2.points) {
-                   return (t2.goalsFor - t2.goalsAgainst) - (t1.goalsFor - t1.goalsAgainst);
-               }
-               return t2.points - t1.points;
-           }
+        teams.sort(new Comparator<Team>() {
+            @Override
+            public int compare(Team t1, Team t2) {
+                if (t1.points == t2.points) {
+                    return (t2.goalsFor - t2.goalsAgainst) - (t1.goalsFor - t1.goalsAgainst);
+                }
+                return t2.points - t1.points;
+            }
         });
 
         System.out.println("\nLeague Standings:");
